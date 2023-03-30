@@ -4,3 +4,6 @@
 [submodule "lib/openzepplin-contracts"]
 	path = lib/openzepplin-contracts
 	url = https://github.com/Openzepplin/openzepplin-contracts
+[submodule "lib/ERC721A-Upgradeable"]
+	path = lib/ERC721A-Upgradeable
+	url = https://github.com/chiru-labs/ERC721A-Upgradeable
