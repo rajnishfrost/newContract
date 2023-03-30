@@ -14,10 +14,10 @@ pragma solidity ^0.8.16;
 
 import {ERC721AUpgradeable, ERC721AStorage} from "@ERC721A-Upgradeable/contracts/ERC721AUpgradeable.sol";
 import {IERC721AUpgradeable} from "@ERC721A-Upgradeable/contracts/IERC721AUpgradeable.sol";
-import {OperatorFilterer} from "https://github.com/ProjectOpenSea/operator-filter-registry/blob/main/src/OperatorFilterer.sol";
+import {OperatorFilterer} from "@operator-filter-registry/src/OperatorFilterer.sol";
 import {IERC2981Upgradeable, IERC165Upgradeable} from "@openzepplin/contracts/interfaces/IERC2981.sol";
 import {MerkleProofUpgradeable} from "@openzepplin/contracts/utils/cryptography/MerkleProof.sol";
-import {ReentrancyGuard} from "https://github.com/transmissions11/solmate/blob/main/src/utils/ReentrancyGuard.sol";
+import {ReentrancyGuard} from "@openzepplin/contracts/security/ReentrancyGuard.sol";
 import {OwnableRoles} from "https://github.com/Vectorized/solady/blob/main/src/auth/OwnableRoles.sol";
 import {SafeTransferLib} from "https://github.com/Vectorized/solady/blob/main/src/utils/SafeTransferLib.sol";
 import {LibString} from "https://github.com/Vectorized/solady/blob/main/src/utils/LibString.sol";

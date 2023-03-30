@@ -2,6 +2,10 @@
 src = 'src'
 out = 'out'
 libs = ['lib']
-remappings = ["@openzepplin/=lib/openzepplin-contracts" , "@ERC721A-Upgradeable/=lib/ERC721A-Upgradeable"]
+remappings = [
+                "@openzepplin/=lib/openzepplin-contracts" , 
+                "@ERC721A-Upgradeable/=lib/ERC721A-Upgradeable" ,
+                "@operator-filter-registry/=lib/operator-filter-registry"
+             ]
 
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config
