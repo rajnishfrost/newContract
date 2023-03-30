@@ -18,9 +18,9 @@ import {OperatorFilterer} from "@operator-filter-registry/src/OperatorFilterer.s
 import {IERC2981Upgradeable, IERC165Upgradeable} from "@openzepplin/contracts/interfaces/IERC2981.sol";
 import {MerkleProofUpgradeable} from "@openzepplin/contracts/utils/cryptography/MerkleProof.sol";
 import {ReentrancyGuard} from "@openzepplin/contracts/security/ReentrancyGuard.sol";
-import {OwnableRoles} from "https://github.com/Vectorized/solady/blob/main/src/auth/OwnableRoles.sol";
-import {SafeTransferLib} from "https://github.com/Vectorized/solady/blob/main/src/utils/SafeTransferLib.sol";
-import {LibString} from "https://github.com/Vectorized/solady/blob/main/src/utils/LibString.sol";
+import {OwnableRoles} from "@solady/src/auth/OwnableRoles.sol";
+import {SafeTransferLib} from "@solady/src/utils/SafeTransferLib.sol";
+import {LibString} from "@solady/src/utils/LibString.sol";
 
 // import { MintRandomnessLib } from "./utils/MintRandomnessLib.sol";
 
