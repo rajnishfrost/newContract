@@ -6,7 +6,8 @@ remappings = [
                 "@openzepplin/=lib/openzepplin-contracts" , 
                 "@ERC721A-Upgradeable/=lib/ERC721A-Upgradeable" ,
                 "@operator-filter-registry/=lib/operator-filter-registry" ,
-                "@solady/=lib/solady"
+                "@solady/=lib/solady" ,
+                "@openzeppelin-contracts-upgradeable/=lib/openzeppelin-contracts-upgradeable"
              ]
 
 # See more config options https://github.com/foundry-rs/foundry/tree/master/config
