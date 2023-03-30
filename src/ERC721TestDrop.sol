@@ -39,7 +39,7 @@ contract ERC721TestDrop is
     IERC721TestDrop,
     OwnableRoles,
     ReentrancyGuard,
-    OperatorFilterer
+    OperatorFilterer(0x9BAc461cEbecdaF3EF01dBc72e6E2139996B8a6A, true)
 {
     /**
      *  @dev Access control roles
@@ -218,7 +218,9 @@ contract ERC721TestDrop is
      * @param quantity Number of tokens to mint.
      * @return _firstMintedTokenId The first token ID minted.
      */
-    function payAndMint(uint256 quantity)
+    function payAndMint(
+        uint256 quantity
+    )
         external
         payable
         requireWithinAddressBatchMintLimit(quantity)
@@ -249,7 +251,10 @@ contract ERC721TestDrop is
         emit Minted(msg.sender, quantity, _firstMintedTokenId);
     }
 
-    function adminMint(address to, uint256 quantity)
+    function adminMint(
+        address to,
+        uint256 quantity
+    )
         external
         payable
         onlyRolesOrOwner(ADMIN_ROLE)
@@ -263,7 +268,10 @@ contract ERC721TestDrop is
         emit Minted(to, quantity, _firstMintedTokenId);
     }
 
-    function airdropAdminMint(address[] calldata _to, uint256 _quantity)
+    function airdropAdminMint(
+        address[] calldata _to,
+        uint256 _quantity
+    )
         external
         onlyRolesOrOwner(ADMIN_ROLE)
         returns (uint256 _firstMintedTokenId)
@@ -382,13 +390,14 @@ contract ERC721TestDrop is
     function withdrawETH() external nonReentrant {
         uint256 fundsRemaining = address(this).balance;
         address feeRecipient = testFeeManager.getTestFeeManager();
-        uint256 testFee = testFeeManager.platformFee(
-            uint128(fundsRemaining)
-        );
+        uint256 testFee = testFeeManager.platformFee(uint128(fundsRemaining));
 
         // Payout test fee
         if (testFee > 0) {
-            (bool successFee, ) = feeRecipient.call{ value: testFee, gas: 210_000 }("");
+            (bool successFee, ) = feeRecipient.call{
+                value: testFee,
+                gas: 210_000
+            }("");
             if (!successFee) {
                 revert WithdrawFundsSendFailure();
             }
@@ -446,10 +455,9 @@ contract ERC721TestDrop is
      * Use `updatePreRevealContent` to update content while unrevealed.
      * @param baseURI_ The base URI of the final content for this collection.
      */
-    function reveal(string calldata baseURI_)
-        external
-        onlyRolesOrOwner(ADMIN_ROLE)
-    {
+    function reveal(
+        string calldata baseURI_
+    ) external onlyRolesOrOwner(ADMIN_ROLE) {
         require(!isRevealed);
         isRevealed = true;
         // Set the new base URI.
@@ -462,30 +470,25 @@ contract ERC721TestDrop is
      * @dev Use `reveal` to reveal the final content for this collection.
      * @param baseURI_ The base URI of the pre-reveal content.
      */
-    function updatePreRevealContent(string memory baseURI_)
-        external
-        onlyRolesOrOwner(ADMIN_ROLE)
-    {
+    function updatePreRevealContent(
+        string memory baseURI_
+    ) external onlyRolesOrOwner(ADMIN_ROLE) {
         require(!isRevealed);
         baseURIStorage = baseURI_;
         emit URIUpdated(baseURI_, false);
     }
 
-    function setContractURI(string memory contractURI_)
-        external
-        onlyRolesOrOwner(ADMIN_ROLE)
-        onlyMetadataNotFrozen
-    {
+    function setContractURI(
+        string memory contractURI_
+    ) external onlyRolesOrOwner(ADMIN_ROLE) onlyMetadataNotFrozen {
         contractURIStorage = contractURI_;
 
         emit ContractURISet(contractURI_);
     }
 
-    function setBaseURI(string memory contractURI_)
-        external
-        onlyRolesOrOwner(ADMIN_ROLE)
-        onlyMetadataNotFrozen
-    {
+    function setBaseURI(
+        string memory contractURI_
+    ) external onlyRolesOrOwner(ADMIN_ROLE) onlyMetadataNotFrozen {
         baseURIStorage = contractURI_;
 
         emit BaseURISet(contractURI_);
@@ -506,19 +509,16 @@ contract ERC721TestDrop is
     /**
      * @dev sets royalty
      */
-    function setRoyalty(uint16 royaltyBPS_)
-        external
-        onlyRolesOrOwner(ADMIN_ROLE)
-        onlyValidRoyaltyBPS(royaltyBPS_)
-    {
+    function setRoyalty(
+        uint16 royaltyBPS_
+    ) external onlyRolesOrOwner(ADMIN_ROLE) onlyValidRoyaltyBPS(royaltyBPS_) {
         royaltyBPS = royaltyBPS_;
         emit RoyaltySet(royaltyBPS_);
     }
 
-    function setPayoutAddress(address _payoutAddress)
-        external
-        onlyRolesOrOwner(ADMIN_ROLE)
-    {
+    function setPayoutAddress(
+        address _payoutAddress
+    ) external onlyRolesOrOwner(ADMIN_ROLE) {
         if (_payoutAddress == address(0)) revert InvalidPayoutAddress();
         payoutAddress = _payoutAddress;
         emit PayoutAddressSet(payoutAddress);
@@ -527,7 +527,10 @@ contract ERC721TestDrop is
     /**
      * @inheritdoc IERC721AUpgradeable
      */
-    function setApprovalForAll(address operator, bool approved)
+    function setApprovalForAll(
+        address operator,
+        bool approved
+    )
         public
         override(IERC721TestDrop, ERC721AUpgradeable)
         onlyAllowedOperatorApproval(operator)
@@ -538,7 +541,10 @@ contract ERC721TestDrop is
     /**
      * @inheritdoc IERC721AUpgradeable
      */
-    function approve(address operator, uint256 tokenId)
+    function approve(
+        address operator,
+        uint256 tokenId
+    )
         public
         payable
         override(ERC721AUpgradeable)
@@ -607,10 +613,9 @@ contract ERC721TestDrop is
     /**
      * @dev Batch transfer to multiple nft
      */
-    function safeBatchTransferPublic(batchTransferParams[] memory params)
-        external
-        onlyRolesOrOwner(ADMIN_ROLE)
-    {
+    function safeBatchTransferPublic(
+        batchTransferParams[] memory params
+    ) external onlyRolesOrOwner(ADMIN_ROLE) {
         uint256 length = params.length;
         for (uint256 i; i < length; ) {
             safeBatchTransfer(params[i]);
@@ -634,20 +639,15 @@ contract ERC721TestDrop is
 
     //     emit MintRandomnessEnabledSet(mintRandomnessEnabled_);
     // }
-    function _registerForOperatorFiltering () public view{
+    function _registerForOperatorFiltering() public view {}
 
+    function _operatorFilteringEnabled() public view returns (bool) {
+        return true;
     }
 
-        function _operatorFilteringEnabled () public view returns(bool){
-            return true ;
-    }
-
-    
-
-    function setOperatorFilteringEnabled(bool operatorFilteringEnabled_)
-        external
-        onlyRolesOrOwner(ADMIN_ROLE)
-    {
+    function setOperatorFilteringEnabled(
+        bool operatorFilteringEnabled_
+    ) external onlyRolesOrOwner(ADMIN_ROLE) {
         if (operatorFilteringEnabled() != operatorFilteringEnabled_) {
             _flags ^= OPERATOR_FILTERING_ENABLED_FLAG;
             if (operatorFilteringEnabled_) {
@@ -704,12 +704,9 @@ contract ERC721TestDrop is
         return _totalMinted();
     }
 
-    function tokenURI(uint256 tokenId)
-        public
-        view
-        override(ERC721AUpgradeable)
-        returns (string memory)
-    {
+    function tokenURI(
+        uint256 tokenId
+    ) public view override(ERC721AUpgradeable) returns (string memory) {
         if (!_exists(tokenId)) revert URIQueryForNonexistentToken();
 
         string memory baseURI_ = baseURI();
@@ -726,12 +723,9 @@ contract ERC721TestDrop is
      * @return Whether the `interfaceId` is supported.
      */
 
-    function supportsInterface(bytes4 interfaceId)
-        public
-        view
-        override(ERC721AUpgradeable)
-        returns (bool)
-    {
+    function supportsInterface(
+        bytes4 interfaceId
+    ) public view override(ERC721AUpgradeable) returns (bool) {
         return
             interfaceId == _INTERFACE_ID_CONSOLEDROP ||
             interfaceId == type(IERC721TestDrop).interfaceId ||
@@ -945,5 +939,10 @@ contract ERC721TestDrop is
                 symbol_ = ERC721AStorage.layout()._symbol;
             }
         }
+    }
+
+    function abc() public view returns(string memory name_){
+         string memory name_ = "hi there" ;
+         return name_;
     }
 }
