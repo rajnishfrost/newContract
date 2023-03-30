@@ -12,11 +12,11 @@ pragma solidity ^0.8.16;
 // import {SafeTransferLib} from "solady/utils/SafeTransferLib.sol";
 // import {LibString} from "solady/utils/LibString.sol";
 
-import {ERC721AUpgradeable, ERC721AStorage} from "https://github.com/chiru-labs/ERC721A-Upgradeable/blob/main/contracts/ERC721AUpgradeable.sol";
-import {IERC721AUpgradeable} from "https://github.com/chiru-labs/ERC721A-Upgradeable/blob/05bd2b9993e632ff898472fb6aec6d698a4c6015/contracts/IERC721AUpgradeable.sol";
+import {ERC721AUpgradeable, ERC721AStorage} from "@ERC721A-Upgradeable/contracts/ERC721AUpgradeable.sol";
+import {IERC721AUpgradeable} from "@ERC721A-Upgradeable/contracts/IERC721AUpgradeable.sol";
 import {OperatorFilterer} from "https://github.com/ProjectOpenSea/operator-filter-registry/blob/main/src/OperatorFilterer.sol";
 import {IERC2981Upgradeable, IERC165Upgradeable} from "@openzepplin/contracts/interfaces/IERC2981.sol";
-import {MerkleProofUpgradeable} from "https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/blob/dd8ca8adc47624c5c5e2f4d412f5f421951dcc25/contracts/utils/cryptography/MerkleProofUpgradeable.sol";
+import {MerkleProofUpgradeable} from "@openzepplin/contracts/utils/cryptography/MerkleProof.sol";
 import {ReentrancyGuard} from "https://github.com/transmissions11/solmate/blob/main/src/utils/ReentrancyGuard.sol";
 import {OwnableRoles} from "https://github.com/Vectorized/solady/blob/main/src/auth/OwnableRoles.sol";
 import {SafeTransferLib} from "https://github.com/Vectorized/solady/blob/main/src/utils/SafeTransferLib.sol";
