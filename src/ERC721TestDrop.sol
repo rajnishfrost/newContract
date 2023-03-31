@@ -941,8 +941,8 @@ contract ERC721TestDrop is
         }
     }
 
-    function abc() public view returns(string memory name_){
-         string memory name_ = "hi there" ;
+    function abc(string memory name_ ) public view returns(string memory ){
+        //  string memory name_ = "hi there" ;
          return name_;
     }
 }

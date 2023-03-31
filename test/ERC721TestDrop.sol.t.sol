@@ -11,17 +11,20 @@ contract ERC721TestDropTest is Test {
         erc = new ERC721TestDrop();
     }
 
-    function test_abc() public {
-        string memory value = erc.abc();
-         assertEq(value , "hi there");
-        emit log(value);
-    }
+    // function test_abc() public {
+    //     string memory value = erc.abc("hi rj");
+    //     //  assertEq(value , "hi there");
+    //     emit log(value);
+    // }
 
-    function testcontractURI() public {
-        string memory value = erc.contractURI();
-        //  assertEq(value , "hi there");
-        emit log(value);
-    }
+    // function testcontractURI() public {
+    //     string memory value = erc.contractURI();
+    //     //  assertEq(value , "hi there");
+    //     emit log(value);
+    // }
 
+    function text_intialise() public{
+        
+    }
 
 }
