@@ -35,12 +35,12 @@ interface IERC721TestDrop {
         /// @notice Public sale end timestamp (186+64 = 250)
         uint64 publicSaleEnd;
         /// @notice Presale start timestamp [{publicSalePrice : 10 ,maxSalePurchasePerAddress : 3 , publicSaleStart : 1680248157 ,publicSaleEnd : 1680334557 ,presaleStart : 1680248157 ,presaleEnd : 1680334557 ,presaleMerkleRoot : 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2}]
-        /// @dev new storage slot [10 , 3 , 1680680157 , 1680766557 , 1680507357 , 1680593757 ]
+        /// @dev new storage slot [10 , 3 , 1680680157 , 1680766557 , 1680507357 , 1680593757 , "0xd9145CCE52D386f254917e481eB44e9943F39138"]
         uint64 presaleStart;
         /// @notice Presale end timestamp
         uint64 presaleEnd;
         /// @notice Presale merkle root
-        // bytes32 presaleMerkleRoot;
+        bytes32 presaleMerkleRoot;
     }
 
     /// @notice Return value for sales details to use with front-ends

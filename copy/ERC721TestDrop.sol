@@ -12,26 +12,26 @@ pragma solidity ^0.8.16;
 // import {SafeTransferLib} from "solady/utils/SafeTransferLib.sol";
 // import {LibString} from "solady/utils/LibString.sol";
 
-import {ERC721AUpgradeable, ERC721AStorage} from "@ERC721A-Upgradeable/contracts/ERC721AUpgradeable.sol";
-import {IERC721AUpgradeable} from "@ERC721A-Upgradeable/contracts/IERC721AUpgradeable.sol";
-import {OperatorFilterer} from "@operator-filter-registry/src/OperatorFilterer.sol";
-import {IERC2981Upgradeable, IERC165Upgradeable} from "@openzeppelin-contracts-upgradeable/contracts/interfaces/IERC2981Upgradeable.sol";
-import {MerkleProofUpgradeable} from "@openzeppelin-contracts-upgradeable/contracts/utils/cryptography/MerkleProofUpgradeable.sol";
-import {ReentrancyGuard} from "@openzepplin/contracts/security/ReentrancyGuard.sol";
-import {OwnableRoles} from "@solady/src/auth/OwnableRoles.sol";
-import {SafeTransferLib} from "@solady/src/utils/SafeTransferLib.sol";
-import {LibString} from "@solady/src/utils/LibString.sol";
+// import {ERC721AUpgradeable, ERC721AStorage} from "@ERC721A-Upgradeable/contracts/ERC721AUpgradeable.sol";
+// import {IERC721AUpgradeable} from "@ERC721A-Upgradeable/contracts/IERC721AUpgradeable.sol";
+// import {OperatorFilterer} from "@operator-filter-registry/src/OperatorFilterer.sol";
+// import {IERC2981Upgradeable, IERC165Upgradeable} from "@openzeppelin-contracts-upgradeable/contracts/interfaces/IERC2981Upgradeable.sol";
+// import {MerkleProofUpgradeable} from "@openzeppelin-contracts-upgradeable/contracts/utils/cryptography/MerkleProofUpgradeable.sol";
+// import {ReentrancyGuard} from "@openzepplin/contracts/security/ReentrancyGuard.sol";
+// import {OwnableRoles} from "@solady/src/auth/OwnableRoles.sol";
+// import {SafeTransferLib} from "@solady/src/utils/SafeTransferLib.sol";
+// import {LibString} from "@solady/src/utils/LibString.sol";
 
 
-// import {ERC721AUpgradeable, ERC721AStorage} from "https://github.com/chiru-labs/ERC721A-Upgradeable/contracts/ERC721AUpgradeable.sol";
-// import {IERC721AUpgradeable} from "https://github.com/chiru-labs/ERC721A-Upgradeable/contracts/IERC721AUpgradeable.sol";
-// import {OperatorFilterer} from "https://github.com/ProjectOpenSea/operator-filter-registry/src/OperatorFilterer.sol";
-// import {IERC2981Upgradeable, IERC165Upgradeable} from "https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/contracts/interfaces/IERC2981Upgradeable.sol";
-// import {MerkleProofUpgradeable} from "https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/contracts/utils/cryptography/MerkleProofUpgradeable.sol";
-// import {ReentrancyGuard} from "https://github.com/Openzepplin/openzepplin-contracts/contracts/security/ReentrancyGuard.sol";
-// import {OwnableRoles} from "https://github.com/Vectorized/solady/src/auth/OwnableRoles.sol";
-// import {SafeTransferLib} from "https://github.com/Vectorized/solady/src/utils/SafeTransferLib.sol";
-// import {LibString} from "https://github.com/Vectorized/solady/src/utils/LibString.sol";
+import {ERC721AUpgradeable, ERC721AStorage} from "https://github.com/chiru-labs/ERC721A-Upgradeable/contracts/ERC721AUpgradeable.sol";
+import {IERC721AUpgradeable} from "https://github.com/chiru-labs/ERC721A-Upgradeable/contracts/IERC721AUpgradeable.sol";
+import {OperatorFilterer} from "https://github.com/ProjectOpenSea/operator-filter-registry/src/OperatorFilterer.sol";
+import {IERC2981Upgradeable, IERC165Upgradeable} from "https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/contracts/interfaces/IERC2981Upgradeable.sol";
+import {MerkleProofUpgradeable} from "https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/contracts/utils/cryptography/MerkleProofUpgradeable.sol";
+import {ReentrancyGuard} from "https://github.com/Openzepplin/openzepplin-contracts/contracts/security/ReentrancyGuard.sol";
+import {OwnableRoles} from "https://github.com/Vectorized/solady/src/auth/OwnableRoles.sol";
+import {SafeTransferLib} from "https://github.com/Vectorized/solady/src/utils/SafeTransferLib.sol";
+import {LibString} from "https://github.com/Vectorized/solady/src/utils/LibString.sol";
 
 // import { MintRandomnessLib } from "./utils/MintRandomnessLib.sol";
 
@@ -326,18 +326,18 @@ contract ERC721TestDrop is
         onlyPresaleActive
         returns (uint256)
     {
-        // if (
-        //     !MerkleProofUpgradeable.verify(
-        //         merkleProof,
-        //         salesConfig.presaleMerkleRoot,
-        //         keccak256(
-        //             // address, uint256, uint256
-        //             abi.encode(msg.sender, maxQuantity, pricePerToken)
-        //         )
-        //     )
-        // ) {
-        //     revert Presale_MerkleNotApproved();
-        // }
+        if (
+            !MerkleProofUpgradeable.verify(
+                merkleProof,
+                salesConfig.presaleMerkleRoot,
+                keccak256(
+                    // address, uint256, uint256
+                    abi.encode(msg.sender, maxQuantity, pricePerToken)
+                )
+            )
+        ) {
+            revert Presale_MerkleNotApproved();
+        }
 
         if (msg.value != pricePerToken * quantity) {
             revert Purchase_WrongPrice(pricePerToken * quantity);
@@ -384,7 +384,7 @@ contract ERC721TestDrop is
         salesConfig.publicSaleEnd = publicSaleEnd;
         salesConfig.presaleStart = presaleStart;
         salesConfig.presaleEnd = presaleEnd;
-        // salesConfig.presaleMerkleRoot = presaleMerkleRoot;
+        salesConfig.presaleMerkleRoot = presaleMerkleRoot;
 
         emit SalesConfigChanged(msg.sender);
     }

@@ -1,0 +1,2635 @@
+{
+	"compiler": {
+		"version": "0.8.18+commit.87f61d96"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [],
+				"name": "ApprovalCallerNotOwnerNorApproved",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ApprovalQueryForNonexistentToken",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "BalanceQueryForZeroAddress",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "ExceedsAddressBatchMintLimit",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint32",
+						"name": "available",
+						"type": "uint32"
+					}
+				],
+				"name": "ExceedsEditionAvailableSupply",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidPayoutAddress",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "InvalidRoyaltyBPS",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "MetadataIsFrozen",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "MintERC2309QuantityExceedsLimit",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "MintToZeroAddress",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "MintZeroQuantity",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "Mint_SoldOut",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NewOwnerIsZeroAddress",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NoAddressesToAirdrop",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "NoHandoverRequest",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					}
+				],
+				"name": "OperatorNotAllowed",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "OwnerQueryForNonexistentToken",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "OwnershipNotInitializedForExtraData",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "Presale_Inactive",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "Presale_MerkleNotApproved",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "Presale_TooManyForAddress",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "Purchase_TooManyForAddress",
+				"type": "error"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "correctPrice",
+						"type": "uint256"
+					}
+				],
+				"name": "Purchase_WrongPrice",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "Sale_Inactive",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "TransferCallerNotOwnerNorApproved",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "TransferFromIncorrectOwner",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "TransferToNonERC721ReceiverImplementer",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "TransferToZeroAddress",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "URIQueryForNonexistentToken",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "Unauthorized",
+				"type": "error"
+			},
+			{
+				"inputs": [],
+				"name": "WithdrawFundsSendFailure",
+				"type": "error"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address[]",
+						"name": "to",
+						"type": "address[]"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "quantity",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "fromTokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "Airdropped",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "approved",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "Approval",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "approved",
+						"type": "bool"
+					}
+				],
+				"name": "ApprovalForAll",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "string",
+						"name": "_baseURI",
+						"type": "string"
+					}
+				],
+				"name": "BaseURISet",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "fromTokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "toTokenId",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					}
+				],
+				"name": "ConsecutiveTransfer",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "string",
+						"name": "_contractURI",
+						"type": "string"
+					}
+				],
+				"name": "ContractURISet",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "withdrawnBy",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "withdrawnTo",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "amount",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "feeRecipient",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "feeAmount",
+						"type": "uint256"
+					}
+				],
+				"name": "FundsWithdrawn",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "baseURI",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "contractURI",
+						"type": "string"
+					}
+				],
+				"name": "MetadataFrozen",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "quantity",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "_firstMintedTokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "Minted",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "operatorFilteringEnabled_",
+						"type": "bool"
+					}
+				],
+				"name": "OperatorFilteringEnablededSet",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "pendingOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipHandoverCanceled",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "pendingOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipHandoverRequested",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "oldOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "payoutAddress",
+						"type": "address"
+					}
+				],
+				"name": "PayoutAddressSet",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "roles",
+						"type": "uint256"
+					}
+				],
+				"name": "RolesUpdated",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "uint16",
+						"name": "bps",
+						"type": "uint16"
+					}
+				],
+				"name": "RoyaltySet",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "quantity",
+						"type": "uint256"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "pricePerToken",
+						"type": "uint256"
+					},
+					{
+						"indexed": false,
+						"internalType": "uint256",
+						"name": "firstPurchasedTokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "Sale",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "changedBy",
+						"type": "address"
+					}
+				],
+				"name": "SalesConfigChanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "Transfer",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "string",
+						"name": "baseURI",
+						"type": "string"
+					},
+					{
+						"indexed": false,
+						"internalType": "bool",
+						"name": "isRevealed",
+						"type": "bool"
+					}
+				],
+				"name": "URIUpdated",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "ADDRESS_BATCH_MINT_LIMIT",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ADMIN_ROLE",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "METADATA_IS_FROZEN_FLAG",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MINTER_ROLE",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "MINT_RANDOMNESS_ENABLED_FLAG",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "OPERATOR_FILTERING_ENABLED_FLAG",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "OPERATOR_FILTER_REGISTRY",
+				"outputs": [
+					{
+						"internalType": "contract IOperatorFilterRegistry",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "REVEALED_FLAG",
+				"outputs": [
+					{
+						"internalType": "uint8",
+						"name": "",
+						"type": "uint8"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_editionMaxMintable",
+				"outputs": [
+					{
+						"internalType": "uint32",
+						"name": "",
+						"type": "uint32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_operatorFilteringEnabled",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "_registerForOperatorFiltering",
+				"outputs": [],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "name_",
+						"type": "string"
+					}
+				],
+				"name": "abc",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "quantity",
+						"type": "uint256"
+					}
+				],
+				"name": "adminMint",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "_firstMintedTokenId",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address[]",
+						"name": "_to",
+						"type": "address[]"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_quantity",
+						"type": "uint256"
+					}
+				],
+				"name": "airdropAdminMint",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "_firstMintedTokenId",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "approve",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "balanceOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "baseURI",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "baseURIStorage",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "cancelOwnershipHandover",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "pendingOwner",
+						"type": "address"
+					}
+				],
+				"name": "completeOwnershipHandover",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "config",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "editionSize",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint16",
+						"name": "royaltyBPS",
+						"type": "uint16"
+					},
+					{
+						"internalType": "address payable",
+						"name": "fundsRecipient",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "contractURI",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "contractURIStorage",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "editionMaxMintable",
+				"outputs": [
+					{
+						"internalType": "uint32",
+						"name": "",
+						"type": "uint32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "freezeMetadata",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "getApproved",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "roles",
+						"type": "uint256"
+					}
+				],
+				"name": "grantRoles",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "roles",
+						"type": "uint256"
+					}
+				],
+				"name": "hasAllRoles",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "result",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "roles",
+						"type": "uint256"
+					}
+				],
+				"name": "hasAnyRole",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "result",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "name_",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "symbol_",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "baseURI_",
+						"type": "string"
+					},
+					{
+						"internalType": "string",
+						"name": "contractURI_",
+						"type": "string"
+					},
+					{
+						"internalType": "address",
+						"name": "payoutAddress_",
+						"type": "address"
+					},
+					{
+						"internalType": "uint16",
+						"name": "royaltyBPS_",
+						"type": "uint16"
+					},
+					{
+						"components": [
+							{
+								"internalType": "uint104",
+								"name": "publicSalePrice",
+								"type": "uint104"
+							},
+							{
+								"internalType": "uint32",
+								"name": "maxSalePurchasePerAddress",
+								"type": "uint32"
+							},
+							{
+								"internalType": "uint64",
+								"name": "publicSaleStart",
+								"type": "uint64"
+							},
+							{
+								"internalType": "uint64",
+								"name": "publicSaleEnd",
+								"type": "uint64"
+							},
+							{
+								"internalType": "uint64",
+								"name": "presaleStart",
+								"type": "uint64"
+							},
+							{
+								"internalType": "uint64",
+								"name": "presaleEnd",
+								"type": "uint64"
+							},
+							{
+								"internalType": "bytes32",
+								"name": "presaleMerkleRoot",
+								"type": "bytes32"
+							}
+						],
+						"internalType": "struct IERC721TestDrop.SalesConfiguration",
+						"name": "_salesconfig",
+						"type": "tuple"
+					},
+					{
+						"internalType": "uint32",
+						"name": "editionMaxMintable_",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint8",
+						"name": "flags_",
+						"type": "uint8"
+					},
+					{
+						"internalType": "contract ITestFeeManager",
+						"name": "testFeeManager_",
+						"type": "address"
+					}
+				],
+				"name": "initialize",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					}
+				],
+				"name": "isApprovedForAll",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "isRevealed",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "mintConcluded",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "name",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "nextTokenId",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "owner",
+						"type": "address"
+					}
+				],
+				"name": "numberMinted",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "operatorFilteringEnabled",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "roles",
+						"type": "uint256"
+					}
+				],
+				"name": "ordinalsFromRoles",
+				"outputs": [
+					{
+						"internalType": "uint8[]",
+						"name": "ordinals",
+						"type": "uint8[]"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "ownerOf",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "pendingOwner",
+						"type": "address"
+					}
+				],
+				"name": "ownershipHandoverExpiresAt",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "result",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "ownershipHandoverValidFor",
+				"outputs": [
+					{
+						"internalType": "uint64",
+						"name": "",
+						"type": "uint64"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "quantity",
+						"type": "uint256"
+					}
+				],
+				"name": "payAndMint",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "_firstMintedTokenId",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "payoutAddress",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "presaleMintsByAddress",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "quantity",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "maxQuantity",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "pricePerToken",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes32[]",
+						"name": "merkleProof",
+						"type": "bytes32[]"
+					}
+				],
+				"name": "purchasePresale",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "roles",
+						"type": "uint256"
+					}
+				],
+				"name": "renounceRoles",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "requestOwnershipHandover",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "baseURI_",
+						"type": "string"
+					}
+				],
+				"name": "reveal",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "roles",
+						"type": "uint256"
+					}
+				],
+				"name": "revokeRoles",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint8[]",
+						"name": "ordinals",
+						"type": "uint8[]"
+					}
+				],
+				"name": "rolesFromOrdinals",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "roles",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "user",
+						"type": "address"
+					}
+				],
+				"name": "rolesOf",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "roles",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "royaltyBPS",
+				"outputs": [
+					{
+						"internalType": "uint16",
+						"name": "",
+						"type": "uint16"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "salePrice",
+						"type": "uint256"
+					}
+				],
+				"name": "royaltyInfo",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "fundingRecipient_",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "royaltyAmount",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "address",
+								"name": "recipient",
+								"type": "address"
+							},
+							{
+								"internalType": "uint256[]",
+								"name": "tokenIds",
+								"type": "uint256[]"
+							}
+						],
+						"internalType": "struct ERC721TestDrop.batchTransferParams[]",
+						"name": "params",
+						"type": "tuple[]"
+					}
+				],
+				"name": "safeBatchTransferPublic",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "safeTransferFrom",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "safeTransferFrom",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "salesConfig",
+				"outputs": [
+					{
+						"internalType": "uint104",
+						"name": "publicSalePrice",
+						"type": "uint104"
+					},
+					{
+						"internalType": "uint32",
+						"name": "maxSalePurchasePerAddress",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint64",
+						"name": "publicSaleStart",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint64",
+						"name": "publicSaleEnd",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint64",
+						"name": "presaleStart",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint64",
+						"name": "presaleEnd",
+						"type": "uint64"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "presaleMerkleRoot",
+						"type": "bytes32"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "operator",
+						"type": "address"
+					},
+					{
+						"internalType": "bool",
+						"name": "approved",
+						"type": "bool"
+					}
+				],
+				"name": "setApprovalForAll",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "contractURI_",
+						"type": "string"
+					}
+				],
+				"name": "setBaseURI",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "contractURI_",
+						"type": "string"
+					}
+				],
+				"name": "setContractURI",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bool",
+						"name": "operatorFilteringEnabled_",
+						"type": "bool"
+					}
+				],
+				"name": "setOperatorFilteringEnabled",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "setOwner",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_payoutAddress",
+						"type": "address"
+					}
+				],
+				"name": "setPayoutAddress",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint16",
+						"name": "royaltyBPS_",
+						"type": "uint16"
+					}
+				],
+				"name": "setRoyalty",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint104",
+						"name": "publicSalePrice",
+						"type": "uint104"
+					},
+					{
+						"internalType": "uint32",
+						"name": "maxSalePurchasePerAddress",
+						"type": "uint32"
+					},
+					{
+						"internalType": "uint64",
+						"name": "publicSaleStart",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint64",
+						"name": "publicSaleEnd",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint64",
+						"name": "presaleStart",
+						"type": "uint64"
+					},
+					{
+						"internalType": "uint64",
+						"name": "presaleEnd",
+						"type": "uint64"
+					},
+					{
+						"internalType": "bytes32",
+						"name": "presaleMerkleRoot",
+						"type": "bytes32"
+					}
+				],
+				"name": "setSaleConfiguration",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "bytes4",
+						"name": "interfaceId",
+						"type": "bytes4"
+					}
+				],
+				"name": "supportsInterface",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "symbol",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "testFeeManager",
+				"outputs": [
+					{
+						"internalType": "contract ITestFeeManager",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "tokenURI",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalMinted",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "totalSupply",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "from",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "to",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "tokenId",
+						"type": "uint256"
+					}
+				],
+				"name": "transferFrom",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "baseURI_",
+						"type": "string"
+					}
+				],
+				"name": "updatePreRevealContent",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "withdrawETH",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"details": "For drops: assumes 1. linear mint order, 2. max number of mints needs to be less than max_uint64       (if you have more than 18 quintillion linear mints you should probably not be using this contract)",
+			"errors": {
+				"ExceedsAddressBatchMintLimit()": [
+					{
+						"details": "The mint `quantity` cannot exceed `ADDRESS_BATCH_MINT_LIMIT` tokens."
+					}
+				],
+				"ExceedsEditionAvailableSupply(uint32)": [
+					{
+						"details": "The requested quantity exceeds the edition's remaining mintable token quantity.",
+						"params": {
+							"available": "The number of tokens remaining available for mint."
+						}
+					}
+				],
+				"InvalidPayoutAddress()": [
+					{
+						"details": "The given `InvalidPayoutAddress` address is invalid."
+					}
+				],
+				"InvalidRoyaltyBPS()": [
+					{
+						"details": "The given `royaltyBPS` is invalid."
+					}
+				],
+				"MetadataIsFrozen()": [
+					{
+						"details": "The edition's metadata is frozen (e.g.: `baseURI` can no longer be changed)."
+					}
+				],
+				"NewOwnerIsZeroAddress()": [
+					{
+						"details": "The `newOwner` cannot be the zero address."
+					}
+				],
+				"NoAddressesToAirdrop()": [
+					{
+						"details": "No addresses to airdrop."
+					}
+				],
+				"NoHandoverRequest()": [
+					{
+						"details": "The `pendingOwner` does not have a valid handover request."
+					}
+				],
+				"OperatorNotAllowed(address)": [
+					{
+						"details": "Emitted when an operator is not allowed."
+					}
+				],
+				"Unauthorized()": [
+					{
+						"details": "The caller is not authorized to call the function."
+					}
+				]
+			},
+			"events": {
+				"Airdropped(address[],uint256,uint256)": {
+					"details": "Emitted upon an airdrop.",
+					"params": {
+						"fromTokenId": "The first token ID minted to the first address in `to`.",
+						"quantity": "The number of tokens airdropped to each address in `to`.",
+						"to": "The recipients of the airdrop."
+					}
+				},
+				"Approval(address,address,uint256)": {
+					"details": "Emitted when `owner` enables `approved` to manage the `tokenId` token."
+				},
+				"ApprovalForAll(address,address,bool)": {
+					"details": "Emitted when `owner` enables or disables (`approved`) `operator` to manage all of its assets."
+				},
+				"ConsecutiveTransfer(uint256,uint256,address,address)": {
+					"details": "Emitted when tokens in `fromTokenId` to `toTokenId` (inclusive) is transferred from `from` to `to`, as defined in the [ERC2309](https://eips.ethereum.org/EIPS/eip-2309) standard. See {_mintERC2309} for more details."
+				},
+				"FundsWithdrawn(address,address,uint256,address,uint256)": {
+					"params": {
+						"amount": "amount that was withdrawn",
+						"feeAmount": "amount of the fee getting sent (if any)",
+						"feeRecipient": "user getting withdraw fee (if any)",
+						"withdrawnBy": "address that issued the withdraw",
+						"withdrawnTo": "address that the funds were withdrawn to"
+					}
+				},
+				"MetadataFrozen(string,string)": {
+					"details": "Emitted when the metadata is frozen (e.g.: `baseURI` can no longer be changed).",
+					"params": {
+						"baseURI": "The base URI of the edition.",
+						"contractURI": "The contract URI of the edition."
+					}
+				},
+				"Minted(address,uint256,uint256)": {
+					"details": "Emitted upon a mint.",
+					"params": {
+						"_firstMintedTokenId": "The first token ID minted.",
+						"quantity": "The number of minted.",
+						"to": "The address to mint to."
+					}
+				},
+				"OperatorFilteringEnablededSet(bool)": {
+					"details": "Emitted when the `operatorFilteringEnabled` is set.",
+					"params": {
+						"operatorFilteringEnabled_": "The boolean value."
+					}
+				},
+				"OwnershipHandoverCanceled(address)": {
+					"details": "The ownership handover to `pendingOwner` has been canceled."
+				},
+				"OwnershipHandoverRequested(address)": {
+					"details": "An ownership handover to `pendingOwner` has been requested."
+				},
+				"OwnershipTransferred(address,address)": {
+					"details": "The ownership is transferred from `oldOwner` to `newOwner`. This event is intentionally kept the same as OpenZeppelin's Ownable to be compatible with indexers and [EIP-173](https://eips.ethereum.org/EIPS/eip-173), despite it not being as lightweight as a single argument event."
+				},
+				"PayoutAddressSet(address)": {
+					"details": "Emitted when the `payoutAddress` is set.",
+					"params": {
+						"payoutAddress": "The address of the funding recipient."
+					}
+				},
+				"RolesUpdated(address,uint256)": {
+					"details": "The `user`'s roles is updated to `roles`. Each bit of `roles` represents whether the role is set."
+				},
+				"RoyaltySet(uint16)": {
+					"details": "Emitted when the `royaltyBPS` is set.",
+					"params": {
+						"bps": "The new royalty, measured in basis points."
+					}
+				},
+				"Sale(address,uint256,uint256,uint256)": {
+					"params": {
+						"firstPurchasedTokenId": "first purchased token ID (to get range add to quantity for max)",
+						"pricePerToken": "price for each token",
+						"quantity": "quantity of the minted nfts",
+						"to": "address sale was made to"
+					}
+				},
+				"SalesConfigChanged(address)": {
+					"details": "To access new sales configuration, use getter function.",
+					"params": {
+						"changedBy": "Changed by user"
+					}
+				},
+				"Transfer(address,address,uint256)": {
+					"details": "Emitted when `tokenId` token is transferred from `from` to `to`."
+				},
+				"URIUpdated(string,bool)": {
+					"params": {
+						"baseURI": "The base URI for the collection.",
+						"isRevealed": "Whether the collection is revealed."
+					}
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"approve(address,uint256)": {
+					"details": "Gives permission to `to` to transfer `tokenId` token to another account. The approval is cleared when the token is transferred. Only a single account can be approved at a time, so approving the zero address clears previous approvals. Requirements: - The caller must own the token or be an approved operator. - `tokenId` must exist. Emits an {Approval} event."
+				},
+				"balanceOf(address)": {
+					"details": "Returns the number of tokens in `owner`'s account."
+				},
+				"baseURI()": {
+					"details": "returns baseuri"
+				},
+				"cancelOwnershipHandover()": {
+					"details": "Cancels the two-step ownership handover to the caller, if any."
+				},
+				"completeOwnershipHandover(address)": {
+					"details": "Allows the owner to complete the two-step ownership handover to `pendingOwner`. Reverts if there is no existing ownership handover requested by `pendingOwner`."
+				},
+				"contractURI()": {
+					"details": "returns contract uri"
+				},
+				"freezeMetadata()": {
+					"details": "frezzes metadata"
+				},
+				"getApproved(uint256)": {
+					"details": "Returns the account approved for `tokenId` token. Requirements: - `tokenId` must exist."
+				},
+				"grantRoles(address,uint256)": {
+					"details": "Allows the owner to grant `user` `roles`. If the `user` already has a role, then it will be an no-op for the role."
+				},
+				"hasAllRoles(address,uint256)": {
+					"details": "Returns whether `user` has all of `roles`."
+				},
+				"hasAnyRole(address,uint256)": {
+					"details": "Returns whether `user` has any of `roles`."
+				},
+				"initialize(string,string,string,string,address,uint16,(uint104,uint32,uint64,uint64,uint64,uint64,bytes32),uint32,uint8,address)": {
+					"details": "Initializes the contract.",
+					"params": {
+						"baseURI_": "Base URI.",
+						"contractURI_": "Contract URI for OpenSea storefront.",
+						"flags_": "The bitwise OR result of the initialization flags.                                 See: {METADATA_IS_FROZEN_FLAG}                                 See: {MINT_RANDOMNESS_ENABLED_FLAG}",
+						"name_": "Name of the collection.",
+						"payoutAddress_": "Address that receives primary and secondary royalties.",
+						"royaltyBPS_": "Royalty amount in bps (basis points).",
+						"symbol_": "Symbol of the collection."
+					}
+				},
+				"isApprovedForAll(address,address)": {
+					"details": "Returns if the `operator` is allowed to manage all of the assets of `owner`. See {setApprovalForAll}."
+				},
+				"name()": {
+					"details": "Returns the token collection name."
+				},
+				"ordinalsFromRoles(uint256)": {
+					"details": "Convenience function to return an array of `ordinals` from the `roles` bitmap. This is meant for frontends like Etherscan, and is therefore not fully optimized. Not recommended to be called on-chain."
+				},
+				"ownerOf(uint256)": {
+					"details": "Returns the owner of the `tokenId` token. Requirements: - `tokenId` must exist."
+				},
+				"ownershipHandoverExpiresAt(address)": {
+					"details": "Returns the expiry timestamp for the two-step ownership handover to `pendingOwner`."
+				},
+				"ownershipHandoverValidFor()": {
+					"details": "Returns how long a two-step ownership handover is valid for in seconds."
+				},
+				"payAndMint(uint256)": {
+					"details": "Mints `quantity` tokens to addrress `to`      Each token will be assigned a token ID that is consecutively increasing. Calling conditions: - The caller must be the owner of the contract, or have either the   `ADMIN_ROLE`, `MINTER_ROLE`, which can be granted via {grantRole}.   Multiple minters, such as different minter contracts,   can be authorized simultaneously.",
+					"params": {
+						"quantity": "Number of tokens to mint."
+					},
+					"returns": {
+						"_firstMintedTokenId": "The first token ID minted."
+					}
+				},
+				"purchasePresale(uint256,uint256,uint256,bytes32[])": {
+					"params": {
+						"maxQuantity": "max quantity that can be purchased via merkle proof #",
+						"merkleProof": "proof for presale mint",
+						"pricePerToken": "price that each token is purchased at",
+						"quantity": "quantity to purchase"
+					}
+				},
+				"renounceOwnership()": {
+					"details": "Allows the owner to renounce their ownership."
+				},
+				"renounceRoles(uint256)": {
+					"details": "Allow the caller to remove their own roles. If the caller does not have a role, then it will be an no-op for the role."
+				},
+				"requestOwnershipHandover()": {
+					"details": "Request a two-step ownership handover to the caller. The request will be automatically expire in 48 hours (172800 seconds) by default."
+				},
+				"reveal(string)": {
+					"details": "Once revealed, the collection's content is immutable. Use `updatePreRevealContent` to update content while unrevealed.",
+					"params": {
+						"baseURI_": "The base URI of the final content for this collection."
+					}
+				},
+				"revokeRoles(address,uint256)": {
+					"details": "Allows the owner to remove `user` `roles`. If the `user` does not have a role, then it will be an no-op for the role."
+				},
+				"rolesFromOrdinals(uint8[])": {
+					"details": "Convenience function to return a `roles` bitmap from an array of `ordinals`. This is meant for frontends like Etherscan, and is therefore not fully optimized. Not recommended to be called on-chain."
+				},
+				"rolesOf(address)": {
+					"details": "Returns the roles of `user`."
+				},
+				"safeBatchTransferPublic((address,uint256[])[])": {
+					"details": "Batch transfer to multiple nft"
+				},
+				"safeTransferFrom(address,address,uint256)": {
+					"details": "Equivalent to `safeTransferFrom(from, to, tokenId, '')`."
+				},
+				"safeTransferFrom(address,address,uint256,bytes)": {
+					"details": "Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients are aware of the ERC721 protocol to prevent tokens from being forever locked. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must be have been allowed to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event."
+				},
+				"setApprovalForAll(address,bool)": {
+					"details": "Approve or remove `operator` as an operator for the caller. Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller. Requirements: - The `operator` cannot be the caller. Emits an {ApprovalForAll} event."
+				},
+				"setRoyalty(uint16)": {
+					"details": "sets royalty"
+				},
+				"setSaleConfiguration(uint104,uint32,uint64,uint64,uint64,uint64,bytes32)": {
+					"details": "This sets the sales configuration",
+					"params": {
+						"maxSalePurchasePerAddress": "Max # of purchases (public) per address allowed",
+						"presaleEnd": "unix timestamp when the presale ends",
+						"presaleMerkleRoot": "merkle root for the presale information",
+						"presaleStart": "unix timestamp when the presale starts",
+						"publicSaleEnd": "unix timestamp when the public sale ends (set to 0 to disable)",
+						"publicSalePrice": "New public sale price",
+						"publicSaleStart": "unix timestamp when the public sale starts"
+					}
+				},
+				"supportsInterface(bytes4)": {
+					"details": "Informs other contracts which interfaces this contract supports.      Required by https://eips.ethereum.org/EIPS/eip-165",
+					"params": {
+						"interfaceId": "The interface id to check."
+					},
+					"returns": {
+						"_0": "Whether the `interfaceId` is supported."
+					}
+				},
+				"symbol()": {
+					"details": "Returns the token collection symbol."
+				},
+				"tokenURI(uint256)": {
+					"details": "Returns the Uniform Resource Identifier (URI) for `tokenId` token."
+				},
+				"totalSupply()": {
+					"details": "Returns the total number of tokens in existence. Burned tokens will reduce the count. To get the total number of tokens minted, please see {_totalMinted}."
+				},
+				"transferFrom(address,address,uint256)": {
+					"details": "Transfers `tokenId` from `from` to `to`. WARNING: Usage of this method is discouraged, use {safeTransferFrom} whenever possible. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. Emits a {Transfer} event."
+				},
+				"transferOwnership(address)": {
+					"details": "Allows the owner to transfer the ownership to `newOwner`."
+				},
+				"updatePreRevealContent(string)": {
+					"details": "Use `reveal` to reveal the final content for this collection.",
+					"params": {
+						"baseURI_": "The base URI of the pre-reveal content."
+					}
+				},
+				"withdrawETH()": {
+					"details": "Withdraws collected ETH royalties to the payout address and test."
+				}
+			},
+			"stateVariables": {
+				"ADDRESS_BATCH_MINT_LIMIT": {
+					"details": "This is the max mint batch size for the optimized ERC721A mint contract"
+				},
+				"METADATA_IS_FROZEN_FLAG": {
+					"details": "The boolean flag on whether the metadata is frozen."
+				},
+				"MINTER_ROLE": {
+					"details": "Access control roles"
+				},
+				"MINT_RANDOMNESS_ENABLED_FLAG": {
+					"details": "The boolean flag on whether the `mintRandomness` is enabled."
+				},
+				"OPERATOR_FILTERING_ENABLED_FLAG": {
+					"details": "The boolean flag on whether OpenSea operator filtering is enabled."
+				},
+				"REVEALED_FLAG": {
+					"details": "The boolean flag on whether the collection is revealed."
+				},
+				"_INTERFACE_ID_ERC2981": {
+					"details": "The interface ID for EIP-2981 (royaltyInfo)"
+				},
+				"_MAX_BPS": {
+					"details": "Basis points denominator used in fee calculations."
+				},
+				"_flags": {
+					"details": "Packed boolean flags."
+				},
+				"_mintRandomness": {
+					"details": "The randomness based on latest block hash, which is stored upon each mint      unless `randomnessLockedAfterMinted` or `randomnessLockedTimestamp` have been surpassed."
+				},
+				"_shortNameAndSymbol": {
+					"details": "The value for `name` and `symbol` if their combined      length is (32 - 2) bytes. We need 2 bytes for their lengths."
+				},
+				"baseURIStorage": {
+					"details": "The `<tokenId>.json` is appended to this to obtain an NFT's `tokenURI`.      e.g. The URI for `tokenId`: \"1\" with `baseURI`: \"ipfs://foo/\" is \"ipfs://foo/1.json\".",
+					"return": "The base URI used by this collection.",
+					"returns": {
+						"_0": "The base URI used by this collection."
+					}
+				},
+				"contractURIStorage": {
+					"details": "contract URI for contract metadata."
+				},
+				"editionMaxMintable": {
+					"details": "The upper bound of the max mintable quantity for the edition."
+				},
+				"payoutAddress": {
+					"details": "ETH and ERC20 Withdrawals"
+				},
+				"presaleMintsByAddress": {
+					"details": "Mapping for presale mint counts by address to allow public mint limit"
+				},
+				"royaltyBPS": {
+					"details": "The royalty fee in basis points."
+				}
+			},
+			"title": "ERC721TestDrop",
+			"version": 1
+		},
+		"userdoc": {
+			"errors": {
+				"ApprovalCallerNotOwnerNorApproved()": [
+					{
+						"notice": "The caller must own the token or be an approved operator."
+					}
+				],
+				"ApprovalQueryForNonexistentToken()": [
+					{
+						"notice": "The token does not exist."
+					}
+				],
+				"BalanceQueryForZeroAddress()": [
+					{
+						"notice": "Cannot query the balance for the zero address."
+					}
+				],
+				"MintERC2309QuantityExceedsLimit()": [
+					{
+						"notice": "The `quantity` minted with ERC2309 exceeds the safety limit."
+					}
+				],
+				"MintToZeroAddress()": [
+					{
+						"notice": "Cannot mint to the zero address."
+					}
+				],
+				"MintZeroQuantity()": [
+					{
+						"notice": "The quantity of tokens minted must be more than zero."
+					}
+				],
+				"Mint_SoldOut()": [
+					{
+						"notice": "NFT sold out"
+					}
+				],
+				"OwnerQueryForNonexistentToken()": [
+					{
+						"notice": "The token does not exist."
+					}
+				],
+				"OwnershipNotInitializedForExtraData()": [
+					{
+						"notice": "The `extraData` cannot be set on an unintialized ownership slot."
+					}
+				],
+				"Presale_Inactive()": [
+					{
+						"notice": "Presale is inactive"
+					}
+				],
+				"Presale_MerkleNotApproved()": [
+					{
+						"notice": "Presale merkle root is invalid"
+					}
+				],
+				"Presale_TooManyForAddress()": [
+					{
+						"notice": "Too many presale for address"
+					}
+				],
+				"Purchase_TooManyForAddress()": [
+					{
+						"notice": "Too many purchase for address"
+					}
+				],
+				"Purchase_WrongPrice(uint256)": [
+					{
+						"notice": "Wrong price for purchase"
+					}
+				],
+				"Sale_Inactive()": [
+					{
+						"notice": "Sale is inactive"
+					}
+				],
+				"TransferCallerNotOwnerNorApproved()": [
+					{
+						"notice": "The caller must own the token or be an approved operator."
+					}
+				],
+				"TransferFromIncorrectOwner()": [
+					{
+						"notice": "The token must be owned by `from`."
+					}
+				],
+				"TransferToNonERC721ReceiverImplementer()": [
+					{
+						"notice": "Cannot safely transfer to a contract that does not implement the ERC721Receiver interface."
+					}
+				],
+				"TransferToZeroAddress()": [
+					{
+						"notice": "Cannot transfer to the zero address."
+					}
+				],
+				"URIQueryForNonexistentToken()": [
+					{
+						"notice": "The token does not exist."
+					}
+				]
+			},
+			"events": {
+				"FundsWithdrawn(address,address,uint256,address,uint256)": {
+					"notice": "Event emitted when the funds are withdrawn from the minting contract"
+				},
+				"Sale(address,uint256,uint256,uint256)": {
+					"notice": "Event emitted for each sale"
+				},
+				"SalesConfigChanged(address)": {
+					"notice": "Sales configuration has been changed"
+				},
+				"URIUpdated(string,bool)": {
+					"notice": "Emitted when the collection is revealed."
+				}
+			},
+			"kind": "user",
+			"methods": {
+				"baseURIStorage()": {
+					"notice": "The base URI used for all NFTs in this collection."
+				},
+				"config()": {
+					"notice": "Configuration for NFT minting contract storage"
+				},
+				"owner()": {
+					"notice": "============================================================= PUBLIC/EXTERNAL VIEW FUNCTIONS ============================================================="
+				},
+				"purchasePresale(uint256,uint256,uint256,bytes32[])": {
+					"notice": "Merkle-tree based presale purchase function"
+				},
+				"reveal(string)": {
+					"notice": "Allows a collection admin to reveal the collection's final content."
+				},
+				"salesConfig()": {
+					"notice": "Sales configuration"
+				},
+				"updatePreRevealContent(string)": {
+					"notice": "Allows a collection admin to update the pre-reveal content."
+				}
+			},
+			"notice": "NFT Implementation cotract for Developer Code Skill Test - DO NOT USE FOR PRODUCTION",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"src/ERC721TestDrop.sol": "ERC721TestDrop"
+		},
+		"evmVersion": "paris",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/contracts/interfaces/IERC2981Upgradeable.sol": {
+			"keccak256": "0xcd332564fce0b49577b2f0a8591a006e898f1b38fca6e71c0799e7fd31db667f",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1621442fb91ddfd8d0c14d80c2382f8e4a1a97a50ca6aa26e55a5df26d550814",
+				"dweb:/ipfs/QmUhQQXga4QYYVy91MwUEnZymChvP8pimMY7tsPaZFvyey"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/contracts/utils/cryptography/MerkleProofUpgradeable.sol": {
+			"keccak256": "0xd79af954b1a93ef33804da8993e382a99447db991c8920e539a24d3e6442bfd2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://11d885bc43e9d64a601613fede24589811b670603dc8dfa14375d7df879f5c68",
+				"dweb:/ipfs/QmbhXdV2hjQZGsApvEzG9uvQAskGhEbVN5WWjghyjNaR63"
+			]
+		},
+		"https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/contracts/utils/introspection/IERC165Upgradeable.sol": {
+			"keccak256": "0xc6cef87559d0aeffdf0a99803de655938a7779ec0a3cd5d4383483ad85565a09",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://92ad7e572cf44e6b4b37631b44b62f9eb9fb1cf14d9ce51c1504d5dc7ccaf758",
+				"dweb:/ipfs/QmcnbqX85tsWnUXPmtuPLE4SczME2sJaTfmqEFkuAJvWhy"
+			]
+		},
+		"https://github.com/Openzepplin/openzepplin-contracts/contracts/security/ReentrancyGuard.sol": {
+			"keccak256": "0x0e9621f60b2faabe65549f7ed0f24e8853a45c1b7990d47e8160e523683f3935",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://287a2f8d5814dd0f05f22b740f18ca8321acc21c9bd03a6cb2203ea626e2f3f2",
+				"dweb:/ipfs/QmZRQv9iuwU817VuqkA2WweiaibKii69x9QxYBBEfbNEud"
+			]
+		},
+		"https://github.com/ProjectOpenSea/operator-filter-registry/src/IOperatorFilterRegistry.sol": {
+			"keccak256": "0x56ad8df389958dbf89cc30196e5f37779ee87d2e8b551d84a8d0a696e1c69937",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7ca12c8b2d8a6c0ef1ba2204be8628c1443d9371c37aa619a3cc485267b6a30c",
+				"dweb:/ipfs/QmaKXZeCR6kPRXCYo6NZJFnbBEa4eWwBKRYAKyY87vBrtc"
+			]
+		},
+		"https://github.com/ProjectOpenSea/operator-filter-registry/src/OperatorFilterer.sol": {
+			"keccak256": "0xa09fc95700d92846d0809a2dc39ca36eb4fcf48642fc83c3d1b5ebe62f957256",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://adf63229f1f5484c27ca8d86cf73af5244bf163c8e77cc193701f359c9bdb175",
+				"dweb:/ipfs/QmVZPr3BM9CjwLyxHjdjbqBUUSS2Vzr1WRktadgV9UDqvq"
+			]
+		},
+		"https://github.com/ProjectOpenSea/operator-filter-registry/src/lib/Constants.sol": {
+			"keccak256": "0xd7972e1e9ed993e5084ba985a22ea7bd46d48eb247a39b4357ab59d1dc368584",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://56b9b55dd1725b6b7debf91f8b83bf1441deb10269368e4898cb58109143e582",
+				"dweb:/ipfs/QmT5s7qASkza5kXp4nsYixohghGy1RN3iGhFmAFGmQ4dad"
+			]
+		},
+		"https://github.com/Vectorized/solady/src/auth/Ownable.sol": {
+			"keccak256": "0xdbe39ea9c0007f470d5c9b54dc21d7d41e4580a8ec57a81d183fc5ce3815ce75",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://411e9622fd8cb7106be4f3bce46095ae637f70989c7653cb12ad14d81c2a5017",
+				"dweb:/ipfs/QmcW3qGnAdKaPypBS5afQQg4argrM3a32MAYRfeGX8yUuE"
+			]
+		},
+		"https://github.com/Vectorized/solady/src/auth/OwnableRoles.sol": {
+			"keccak256": "0x760768feb4c6ec27c51c14847d4a72eca583393c9b28c15e340434a952a74cd2",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://19a51dea139495ebbdeeb5390d03270e6f22d05870f6a7172e01efe194ef5fb3",
+				"dweb:/ipfs/QmbaTuju9rqyjJKWFxCReVABMCEe5ht4CTqKXFXhLAhRar"
+			]
+		},
+		"https://github.com/Vectorized/solady/src/utils/LibString.sol": {
+			"keccak256": "0xa81597472f09c5a3980789eb66daafb9cfc7e7ffab6439f1ec74677c30bba0c6",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f3561aaa8a9757a31e109ac81cf4ccd6894c912e89c744a0dcaf6173bce16bf2",
+				"dweb:/ipfs/Qmbmzq6s6BqNP8dRmK9bek4mru5VEwUAHcXVJffmpTWf8B"
+			]
+		},
+		"https://github.com/Vectorized/solady/src/utils/SafeTransferLib.sol": {
+			"keccak256": "0xd90b1d9017a6969dce31df5199f92f1b6f5a0a59fa2ac06217a83a2815700082",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ea8efa9269f06ce938c32103058e002595f14dd37df2c8cca3c141935ce5f034",
+				"dweb:/ipfs/QmRCPB2RaVZwaSn3t83Mf7pUYu2PB6ai9BiRK34st8Qfnk"
+			]
+		},
+		"https://github.com/chiru-labs/ERC721A-Upgradeable/contracts/ERC721AStorage.sol": {
+			"keccak256": "0x318831b891d003c94fc2a92ed62a1468809f21e5be110fc59798d3c5c4eb2776",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://942d183f09446eb97a176a208a4762fa682e4d78233f17d3d975b79dd29ab632",
+				"dweb:/ipfs/Qmer9vswYbG8sv9yZcKxHg9JA7wC3jCrAs33AJPLy8UyqM"
+			]
+		},
+		"https://github.com/chiru-labs/ERC721A-Upgradeable/contracts/ERC721AUpgradeable.sol": {
+			"keccak256": "0x5aa004386dfcd8381616b0b898a74db9c206cc171100dbcaab8175d4a5fb5b60",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://d2949cd529d0544f4de25954387c84fa10f2b3c8c37ad53be387fe2333529ca9",
+				"dweb:/ipfs/QmY1nFTsGQBz9KA1pdUc76A7MY94fms66C7TdZ3Kp7VG9j"
+			]
+		},
+		"https://github.com/chiru-labs/ERC721A-Upgradeable/contracts/ERC721A__Initializable.sol": {
+			"keccak256": "0x4a78c3bccd097e704d6c37cf90af892eae0e3fcb13dcc37e5c1ad6c36f4240f0",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://1b2d1b219b5d96c2224b6badd91845100ee099adfb569dd898d8f305ba247c07",
+				"dweb:/ipfs/QmRVNixh5LtNTDdq9aJT3kqPfZjrMmb6CC26fEuUfF61kc"
+			]
+		},
+		"https://github.com/chiru-labs/ERC721A-Upgradeable/contracts/ERC721A__InitializableStorage.sol": {
+			"keccak256": "0x361a8f273736b37718a98049c3f210381c41e4241ff24a36360e417b94ad87b4",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://b50cfd64069938167050defd8e6640ecff6a1687ae79f7b6ffb021f3f65b60f2",
+				"dweb:/ipfs/QmZa4ynQofKGCxWvM7QdVcZx3MkY3XAPeKjd65v4QvvxXK"
+			]
+		},
+		"https://github.com/chiru-labs/ERC721A-Upgradeable/contracts/IERC721AUpgradeable.sol": {
+			"keccak256": "0xa8e2bf92476033e48df3911783487b46bcd20f6490a6fdc8c93ca7a0e94bca20",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://3e9c32378e93dc798ff46d6679313fa3a0fbb1be1afd6fa2bef0d1417a77d5c8",
+				"dweb:/ipfs/QmVqTn3xKbiUaUyRweDj64r4JDB4RhcMRxpdwc76jcA5gK"
+			]
+		},
+		"src/ERC721TestDrop.sol": {
+			"keccak256": "0xe49df0ef30450f5c74677daf9e44476dbb7debd99ea06ded10273bb3970c046e",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://a59e38ac612e855e81bf3e3a1e54feb911664d1307e160a66083676bbf2850e1",
+				"dweb:/ipfs/QmaV5bs1dTBj71DHygongV7Wv4EZaUuWYaRrcDwRMB7w8D"
+			]
+		},
+		"src/IERC721TestDrop.sol": {
+			"keccak256": "0xd502f907309cae5c9f308408065aca9b04879b6d9be565466486544b186f8155",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://ce6bd84d35dd412b86cadc99fa308c1a0f21817e3f320f7f9eac390a58367f7c",
+				"dweb:/ipfs/QmaaYWFkKngsBh85YzbFnLifHEYKggKg1XqvnSLp9rwhd3"
+			]
+		},
+		"src/ITestFeeManager.sol": {
+			"keccak256": "0x1893cd08b03c6c02365141c6df0e23a39ff749b05bde2a9d3c5aee78a4de7e5b",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7eee19d9483c63cfc1988e21d1d51958a2ee0ae64d7c7ac2cf80a1430370fa9a",
+				"dweb:/ipfs/QmNVLipCNf41TZzSoC1GFiNfqGq3oigeHkWy5rULEysQtM"
+			]
+		}
+	},
+	"version": 1
+}
