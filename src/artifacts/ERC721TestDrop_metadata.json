@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.18+commit.87f61d96"
+		"version": "0.8.19+commit.7dd6d404"
 	},
 	"language": "Solidity",
 	"output": {
@@ -722,25 +722,6 @@
 			{
 				"inputs": [
 					{
-						"internalType": "string",
-						"name": "name_",
-						"type": "string"
-					}
-				],
-				"name": "abc",
-				"outputs": [
-					{
-						"internalType": "string",
-						"name": "",
-						"type": "string"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
 						"internalType": "address",
 						"name": "to",
 						"type": "address"
@@ -1086,11 +1067,6 @@
 								"internalType": "uint64",
 								"name": "presaleEnd",
 								"type": "uint64"
-							},
-							{
-								"internalType": "bytes32",
-								"name": "presaleMerkleRoot",
-								"type": "bytes32"
 							}
 						],
 						"internalType": "struct IERC721TestDrop.SalesConfiguration",
@@ -1641,11 +1617,6 @@
 						"internalType": "uint64",
 						"name": "presaleEnd",
 						"type": "uint64"
-					},
-					{
-						"internalType": "bytes32",
-						"name": "presaleMerkleRoot",
-						"type": "bytes32"
 					}
 				],
 				"stateMutability": "view",
@@ -2125,7 +2096,7 @@
 				"hasAnyRole(address,uint256)": {
 					"details": "Returns whether `user` has any of `roles`."
 				},
-				"initialize(string,string,string,string,address,uint16,(uint104,uint32,uint64,uint64,uint64,uint64,bytes32),uint32,uint8,address)": {
+				"initialize(string,string,string,string,address,uint16,(uint104,uint32,uint64,uint64,uint64,uint64),uint32,uint8,address)": {
 					"details": "Initializes the contract.",
 					"params": {
 						"baseURI_": "Base URI.",
@@ -2559,11 +2530,11 @@
 			]
 		},
 		"https://github.com/Vectorized/solady/src/utils/SafeTransferLib.sol": {
-			"keccak256": "0xd90b1d9017a6969dce31df5199f92f1b6f5a0a59fa2ac06217a83a2815700082",
+			"keccak256": "0x3b95a47c220178d68b335bc25dd7efb2990ec3c52cd89165f9eb464f9fc856a0",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ea8efa9269f06ce938c32103058e002595f14dd37df2c8cca3c141935ce5f034",
-				"dweb:/ipfs/QmRCPB2RaVZwaSn3t83Mf7pUYu2PB6ai9BiRK34st8Qfnk"
+				"bzz-raw://8f50a4117cf3a1e70f5fa5331334d7e10a0311c43347a91200c7c018fe8458aa",
+				"dweb:/ipfs/QmXCQGMyUT2793UsASYYwUd9AFwvAWSyzABbZPamTVjG4y"
 			]
 		},
 		"https://github.com/chiru-labs/ERC721A-Upgradeable/contracts/ERC721AStorage.sol": {
@@ -2607,19 +2578,19 @@
 			]
 		},
 		"src/ERC721TestDrop.sol": {
-			"keccak256": "0xe49df0ef30450f5c74677daf9e44476dbb7debd99ea06ded10273bb3970c046e",
+			"keccak256": "0xa9404bff241f1eb4dc72e27d2cfdb9e2ffd53c3c19ffa390fb4063e16a2845c7",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://a59e38ac612e855e81bf3e3a1e54feb911664d1307e160a66083676bbf2850e1",
-				"dweb:/ipfs/QmaV5bs1dTBj71DHygongV7Wv4EZaUuWYaRrcDwRMB7w8D"
+				"bzz-raw://64b0385000d18cce7bf6a20a010d05d540d5a5eb71eb5f1b31a5a81fc58330b7",
+				"dweb:/ipfs/QmU8w1z113wTsVQmN4YNpAfhDRHEGWcF64xNEdue6dcT8E"
 			]
 		},
 		"src/IERC721TestDrop.sol": {
-			"keccak256": "0xd502f907309cae5c9f308408065aca9b04879b6d9be565466486544b186f8155",
+			"keccak256": "0x9a372db949f5b4c6140a863050ef01e838e2768391fea6ed2d8e5d487d33692a",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://ce6bd84d35dd412b86cadc99fa308c1a0f21817e3f320f7f9eac390a58367f7c",
-				"dweb:/ipfs/QmaaYWFkKngsBh85YzbFnLifHEYKggKg1XqvnSLp9rwhd3"
+				"bzz-raw://59167bf5d2f2683a489e47ab1eaae0c3d598efd93b8cb55773c35e8527869a23",
+				"dweb:/ipfs/QmcyuUveNjq5MeSRYWPCZBCTWSo8LKCGF2tJLjKkcuBXVm"
 			]
 		},
 		"src/ITestFeeManager.sol": {

@@ -9,29 +9,11 @@ contract ERC721TestDropTest is Test {
 
     ERC721TestDrop public erc;
     ITestFeeManager public feesMange;
-    // address address1 = address(0x1);
-    // address address2 = address(0x2);
-
 
 
     function setUp() public {
         erc = new ERC721TestDrop();
-        // feesMange = new ITestFeeManager();
     }
-
-//      function setUp() public virtual {
-          
-//        utils = new Utils();
-//        users = utils.createUsers(2);
-//        owner = users[0];
-//        vm.label(owner, "Owner");
-//        dev = users[1];
-//        vm.label(dev, "Developer");
-
-//        erc = new ERC721TestDrop();
-
-
-//    }
 
     // funcemit log(value);
     // }
@@ -48,47 +30,36 @@ contract ERC721TestDropTest is Test {
 
     // function testcontractURI() public {
     //     string memory value = erc.contractURI();
-    //     //  assertEq(value , "hi there");
+    //     //  assertEq(value , "hi there"); 0x4b1f4E927afbA64a826249bBbA405140d093E036 0xc54b40Db78B668d90E24Ca748FcF48966c5F36eB 0x659c55Af1C9035F14C10f5b3765D8469dECB09a8
     //     emit log("hi");
     // }
 
-     struct SalesConfiguration {
-        /// @dev Public sale price (max ether value > 1000 ether with this value) 
-        uint104 publicSalePrice;
-        /// @notice Purchase mint limit per address (if set to 0 === unlimited mints)
-        /// @dev Max purchase number per txn (90+32 = 122)
-        uint32 maxSalePurchasePerAddress;
-        /// @dev uint64 type allows for dates into 292 billion years
-        /// @notice Public sale start timestamp (136+64 = 186)
-        uint64 publicSaleStart;
-        /// @notice Public sale end timestamp (186+64 = 250)
-        uint64 publicSaleEnd;
-        /// @notice Presale start timestamp [{publicSalePrice : 10 ,maxSalePurchasePerAddress : 3 , publicSaleStart : 1680248157 ,publicSaleEnd : 1680334557 ,presaleStart : 1680248157 ,presaleEnd : 1680334557 ,presaleMerkleRoot : 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2}]
-        /// @dev new storage slot [10 , 3 , 1680680157 , 1680766557 , 1680507357 , 1680593757 ]
-        uint64 presaleStart;
-        /// @notice Presale end timestamp
-        uint64 presaleEnd;
-        /// @notice Presale merkle root
-        // bytes32 presaleMerkleRoot;
-    }
 
     function test_intialise() public{
-
-        feesMange = 0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB ;
-        
-        // emit log_address(address1);
-
        ERC721TestDrop.SalesConfiguration memory a ;
-
         a.publicSalePrice = 10;
         a.maxSalePurchasePerAddress = 3;
         a.publicSaleStart = 1680680157;
         a.publicSaleEnd = 1680766557 ;
         a.presaleStart = 1680507357 ;
         a.presaleEnd = 1680593757 ;
+
+        address[] memory _to = new address[](2);
+        _to[0] = 0x4b1f4E927afbA64a826249bBbA405140d093E036;
+        _to[1] = 0xc54b40Db78B668d90E24Ca748FcF48966c5F36eB;
         
 
-        erc.initialize("suraj" , "sj" , "www.google.com" , "imagename.png" , 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4 , 2 , a , 100 , 2 , contract ITestFeeManager);
+        erc.initialize("suraj" , "sj" , "www.google.com" , "imagename.png" , 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4 , 2 , a , 100 , 2 , ITestFeeManager(0x5B38Da6a701c568545dCfcB03FcB875f56beddC4));
+        // vm.startPrank(0x4b1f4E927afbA64a826249bBbA405140d093E036);
+        uint256 payAndMint = erc.payAndMint{ value : 20}(2);
+        // uint256 adminMint = erc.adminMint(0x5B38Da6a701c568545dCfcB03FcB875f56beddC4 , 1);
+        // uint256 airdropMint = erc.airdropAdminMint(_to , 5);
+        uint256 balanceOf2 = erc.balanceOf(0x659c55Af1C9035F14C10f5b3765D8469dECB09a8);
+        erc.transferFrom(0x4b1f4E927afbA64a826249bBbA405140d093E036 , 0xc54b40Db78B668d90E24Ca748FcF48966c5F36eB , 1);
+        uint256 balanceOf = erc.balanceOf(0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB);
+        // string memory value = erc.symbol();
+        // emit log_uint(balanceOf2);
+        emit log_uint(balanceOf);
     }
 
     // function test_adminMint() public{
@@ -99,6 +70,11 @@ contract ERC721TestDropTest is Test {
     //     uint256 a = erc.totalMinted();
 
     //     emit log_uint(a);
+    // }
+
+    // function test_symbol() public {
+    //     string memory value = erc.symbol();
+    //     emit log(value);
     // }
 
 }

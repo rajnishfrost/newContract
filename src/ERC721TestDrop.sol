@@ -50,7 +50,7 @@ contract ERC721TestDrop is
     IERC721TestDrop,
     OwnableRoles,
     ReentrancyGuard,
-    OperatorFilterer(0x9BAc461cEbecdaF3EF01dBc72e6E2139996B8a6A, true)
+    OperatorFilterer(0x5B38Da6a701c568545dCfcB03FcB875f56beddC4, true)
 {
     /**
      *  @dev Access control roles
@@ -952,8 +952,4 @@ contract ERC721TestDrop is
         }
     }
 
-    function abc(string memory name_ ) public view returns(string memory ){
-        //  string memory name_ = "hi there" ;
-         return name_;
-    }
 }
