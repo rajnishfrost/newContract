@@ -22,7 +22,6 @@ import {OwnableRoles} from "@solady/src/auth/OwnableRoles.sol";
 import {SafeTransferLib} from "@solady/src/utils/SafeTransferLib.sol";
 import {LibString} from "@solady/src/utils/LibString.sol";
 
-
 // import {ERC721AUpgradeable, ERC721AStorage} from "https://github.com/chiru-labs/ERC721A-Upgradeable/contracts/ERC721AUpgradeable.sol";
 // import {IERC721AUpgradeable} from "https://github.com/chiru-labs/ERC721A-Upgradeable/contracts/IERC721AUpgradeable.sol";
 // import {OperatorFilterer} from "https://github.com/ProjectOpenSea/operator-filter-registry/src/OperatorFilterer.sol";
@@ -561,7 +560,7 @@ contract ERC721TestDrop is
         override(ERC721AUpgradeable)
         onlyAllowedOperatorApproval(operator)
     {
-        super.approve(operator, tokenId);
+        super._approve(operator, tokenId);
     }
 
     /**
@@ -573,6 +572,16 @@ contract ERC721TestDrop is
         uint256 tokenId
     ) public payable override(ERC721AUpgradeable) onlyAllowedOperator(from) {
         super.transferFrom(from, to, tokenId);
+    }
+
+    /**
+     * @inheritdoc IERC721AUpgradeable
+     */
+    function ownerOf(
+        uint256 tokenId
+    ) public view virtual override returns (address) {
+        address  a = super.ownerOf(tokenId);
+        return a ;
     }
 
     /**
@@ -951,5 +960,4 @@ contract ERC721TestDrop is
             }
         }
     }
-
 }

@@ -50,20 +50,26 @@ contract ERC721TestDropTest is Test {
         
 
         erc.initialize("suraj" , "sj" , "www.google.com" , "imagename.png" , 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4 , 2 , a , 100 , 2 , ITestFeeManager(0x5B38Da6a701c568545dCfcB03FcB875f56beddC4));
-        // vm.startPrank(0x4b1f4E927afbA64a826249bBbA405140d093E036);
-        uint256 payAndMint = erc.payAndMint{ value : 20}(2);
-        // uint256 adminMint = erc.adminMint(0x5B38Da6a701c568545dCfcB03FcB875f56beddC4 , 1);
+        // uint256 payAndMint = erc.payAndMint{ value : 20}(2);
+        uint256 adminMint = erc.adminMint(0x5B38Da6a701c568545dCfcB03FcB875f56beddC4 , 10);
+        // uint256 adminMint2 = erc.adminMint(0x4b1f4E927afbA64a826249bBbA405140d093E036 , 10);
         // uint256 airdropMint = erc.airdropAdminMint(_to , 5);
-        uint256 balanceOf2 = erc.balanceOf(0x659c55Af1C9035F14C10f5b3765D8469dECB09a8);
-        erc.transferFrom(0x4b1f4E927afbA64a826249bBbA405140d093E036 , 0xc54b40Db78B668d90E24Ca748FcF48966c5F36eB , 1);
-        uint256 balanceOf = erc.balanceOf(0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB);
+        // uint256 balanceOf2 = erc.balanceOf(0x659c55Af1C9035F14C10f5b3765D8469dECB09a8);
+        // erc.approve(0x4b1f4E927afbA64a826249bBbA405140d093E036 , adminMint);
+        vm.startPrank(0x5B38Da6a701c568545dCfcB03FcB875f56beddC4);
+        erc.transferFrom(0x5B38Da6a701c568545dCfcB03FcB875f56beddC4 , 0x4b1f4E927afbA64a826249bBbA405140d093E036 , adminMint);
+        // erc.ownerOf(adminMint); 
+        // uint256 balanceOf = erc.balanceOf(0x4b1f4E927afbA64a826249bBbA405140d093E036);
         // string memory value = erc.symbol();
-        // emit log_uint(balanceOf2);
-        emit log_uint(balanceOf);
+        // emit log_uint(adminMint2);
+        // emit log_uint(balanceOf);
+        emit log_address(erc.ownerOf(2));
     }
 
     // function test_adminMint() public{
-    //     erc.adminMint(0x78731D3Ca6b7E34aC0F824c42a7cC18A495cabaB , 1);
+    //     uint256 adminMint = erc.adminMint(0x5B38Da6a701c568545dCfcB03FcB875f56beddC4 , 1);
+    //     // uint256 balanceOf2 = erc.balanceOf(0x5B38Da6a701c568545dCfcB03FcB875f56beddC4);
+    //     emit log_uint(adminMint);
     // }
 
     // function test_totalMinted() public {
