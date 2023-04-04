@@ -2,15 +2,6 @@
 
 pragma solidity ^0.8.16;
 
-// import {ERC721AUpgradeable, ERC721AStorage} from "ERC721A-Upgradeable/ERC721AUpgradeable.sol";
-// import {IERC721AUpgradeable} from "ERC721A-Upgradeable/IERC721AUpgradeable.sol";
-// import {OperatorFilterer} from "operator-filter-registry/OperatorFilterer.sol";
-// import {IERC2981Upgradeable, IERC165Upgradeable} from "openzeppelin-contracts-upgradeable/interfaces/IERC2981Upgradeable.sol";
-// import {MerkleProofUpgradeable} from "openzeppelin-contracts-upgradeable/utils/cryptography/MerkleProofUpgradeable.sol";
-// import {ReentrancyGuard} from "solmate/utils/ReentrancyGuard.sol";
-// import {OwnableRoles} from "solady/auth/OwnableRoles.sol";
-// import {SafeTransferLib} from "solady/utils/SafeTransferLib.sol";
-// import {LibString} from "solady/utils/LibString.sol";
 
 import {ERC721AUpgradeable, ERC721AStorage} from "@ERC721A-Upgradeable/contracts/ERC721AUpgradeable.sol";
 import {IERC721AUpgradeable} from "@ERC721A-Upgradeable/contracts/IERC721AUpgradeable.sol";
@@ -22,17 +13,6 @@ import {OwnableRoles} from "@solady/src/auth/OwnableRoles.sol";
 import {SafeTransferLib} from "@solady/src/utils/SafeTransferLib.sol";
 import {LibString} from "@solady/src/utils/LibString.sol";
 
-// import {ERC721AUpgradeable, ERC721AStorage} from "https://github.com/chiru-labs/ERC721A-Upgradeable/contracts/ERC721AUpgradeable.sol";
-// import {IERC721AUpgradeable} from "https://github.com/chiru-labs/ERC721A-Upgradeable/contracts/IERC721AUpgradeable.sol";
-// import {OperatorFilterer} from "https://github.com/ProjectOpenSea/operator-filter-registry/src/OperatorFilterer.sol";
-// import {IERC2981Upgradeable, IERC165Upgradeable} from "https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/contracts/interfaces/IERC2981Upgradeable.sol";
-// import {MerkleProofUpgradeable} from "https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/contracts/utils/cryptography/MerkleProofUpgradeable.sol";
-// import {ReentrancyGuard} from "https://github.com/Openzepplin/openzepplin-contracts/contracts/security/ReentrancyGuard.sol";
-// import {OwnableRoles} from "https://github.com/Vectorized/solady/src/auth/OwnableRoles.sol";
-// import {SafeTransferLib} from "https://github.com/Vectorized/solady/src/utils/SafeTransferLib.sol";
-// import {LibString} from "https://github.com/Vectorized/solady/src/utils/LibString.sol";
-
-// import { MintRandomnessLib } from "./utils/MintRandomnessLib.sol";
 
 import {IERC721TestDrop} from "./IERC721TestDrop.sol";
 import {ITestFeeManager} from "./ITestFeeManager.sol";
